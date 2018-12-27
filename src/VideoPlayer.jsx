@@ -19,7 +19,7 @@ class VideoPlayer extends Component {
                 <div
                   className="videoReader"
                   tabIndex="0"
-                  role="button"
+                  role="menuitem"
                   onKeyDown={(e) => {
                     let keyDownHandler = null;
                     switch (e.which) {
