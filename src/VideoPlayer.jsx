@@ -21,21 +21,21 @@ class VideoPlayer extends Component {
                   tabIndex="0"
                   role="menuitem"
                   onKeyDown={(e) => {
-                    let keyDownHandler = null;
+                    let onKeyDownHandler = null;
                     switch (e.which) {
-                      case 37: keyDownHandler = actions.navigate(state.currentTime - 0.04);
+                      case 37: onKeyDownHandler = actions.navigate(state.currentTime - 0.04);
                         break;
-                      case 39: keyDownHandler = actions.navigate(state.currentTime + 0.04);
+                      case 39: onKeyDownHandler = actions.navigate(state.currentTime + 0.04);
                         break;
-                      case 32: keyDownHandler = state.status === 'paused' ? actions.play() : actions.pause();
+                      case 32: onKeyDownHandler = state.status === 'paused' ? actions.play() : actions.pause();
                         break;
-                      case 77: keyDownHandler = actions.toggleMute();
+                      case 77: onKeyDownHandler = actions.toggleMute();
                         break;
-                      case 70: keyDownHandler = actions.requestFullscreen();
+                      case 70: onKeyDownHandler = actions.requestFullscreen();
                         break;
-                      default: return '';
+                      default: return onKeyDownHandler;
                     }
-                    return keyDownHandler;
+                    return onKeyDownHandler;
                   }
                 }
                 >
@@ -53,10 +53,12 @@ class VideoPlayer extends Component {
                   {Math.floor(state.buffered * (100 / state.duration))}
                   %
                 </div>
-                <progress
+                <input
+                  type="range"
                   value={state.currentTime}
                   max={state.duration}
-                  onChange={actions.navigate}
+                  onChange={e => actions.navigate(e.target.value)}
+                  className="rangeNav"
                 />
                 <div className="videoControls">
                   <div>
