@@ -6,6 +6,7 @@ import { linkTo } from '@storybook/addon-links';
 
 import { Button, Welcome } from '@storybook/react/demo';
 import VideoPlayer from '../components/VideoPlayer';
+import PlayPauseButton from '../components/PlayPauseButton';
 
 storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
 
@@ -23,3 +24,6 @@ storiesOf('Video Player', module)
   .add('my video player test', () => (
     <VideoPlayer />
   ));
+
+storiesOf('Play-pause button', module)
+  .add('Play/pause button', () => <PlayPauseButton />);
