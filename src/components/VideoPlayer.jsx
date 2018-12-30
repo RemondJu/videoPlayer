@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import Video from 'react-video-renderer';
 import './VideoPlayer.css';
+import FullScreenButton from './FullScreenButton';
+import FrameNavigation from './FrameNavigation';
+import PlayPauseButton from './PlayPauseButton';
+import MuteButton from './MuteButton';
+import VolumeSetter from './VolumeSetter';
+import VideoNavigationRange from './VideoNavigationRange';
 
 class VideoPlayer extends Component {
   constructor(props) {
@@ -43,39 +49,32 @@ class VideoPlayer extends Component {
                 </div>
                 {loadingComponent}
                 <div>
-                  {Math.floor(state.currentTime)}
-                  s /
-                  {Math.floor(state.duration)}
-                  s
+                  {`${Math.floor(state.currentTime)}s /${Math.floor(state.duration)}s`}
                 </div>
                 <div>
-                  Buffering:
-                  {Math.floor(state.buffered * (100 / state.duration))}
-                  %
+                  {`Buffering:${Math.floor(state.buffered * (100 / state.duration))}%`}
                 </div>
-                <input
-                  type="range"
-                  value={state.currentTime}
-                  max={state.duration}
-                  onChange={e => actions.navigate(e.target.value)}
-                  className="rangeNav"
+                <VideoNavigationRange
+                  currentTime={state.currentTime}
+                  duration={state.duration}
+                  navigate={actions.navigate}
                 />
                 <div className="videoControls">
-                  <div>
-                    <input type="range" value={state.volume} max={1} step="0.01" onChange={e => actions.setVolume(e.target.value)} />
-                    <p>
-                      Vol.
-                      {Math.floor(state.volume * 100)}
-                      %
-                    </p>
-                  </div>
-                  <button type="button" onClick={actions.toggleMute}>{state.isMuted ? 'Unmute' : 'Mute'}</button>
-                  <button type="button" onClick={state.status === 'paused' ? actions.play : actions.pause}>{state.status === 'paused' ? 'Play' : 'Pause'}</button>
-                  <div>
-                    <button type="button" className="frameButton" onClick={() => actions.navigate(state.currentTime - 0.04)}>{'<'}</button>
-                    <button type="button" className="frameButton" onClick={() => actions.navigate(state.currentTime + 0.04)}>{'>'}</button>
-                  </div>
-                  <button type="button" onClick={actions.requestFullscreen}>Fullscreen</button>
+                  <VolumeSetter
+                    volume={state.volume}
+                    setVolume={actions.setVolume}
+                  />
+                  <MuteButton
+                    toggleMute={actions.toggleMute}
+                    isMuted={state.isMuted}
+                  />
+                  <PlayPauseButton
+                    status={state.status}
+                    play={actions.play}
+                    pause={actions.pause}
+                  />
+                  <FrameNavigation navigate={actions.navigate} currentTime={state.currentTime} />
+                  <FullScreenButton requestFullscreen={actions.requestFullscreen} />
                 </div>
               </div>
             );
