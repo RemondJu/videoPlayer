@@ -1,4 +1,5 @@
 import React from 'react';
+import './VideoNavigationRange.css';
 
 const VideoNavigationRange = (props) => {
   const { currentTime, duration, navigate } = props;
