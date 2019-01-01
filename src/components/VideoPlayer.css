@@ -12,26 +12,67 @@
     justify-content: space-around;
     margin: 20px 80px;
     align-items: center;
+    flex-wrap: wrap;
 }
-.videoReader:focus{
+
+.videoReader:focus, .VideoScreen button{
     outline: none;
 }
 
-.Video button{
+.VideoScreen button{
     border-radius: 15px;
     padding: 8px;
     width: 80px;
+    background: none;
+    background-color: #4e9af1;
+    color: white;
+    border: none;
+   
 }
-.Video video{
+
+@media  screen and (max-width: 340px) {
+    .VideoScreen button{
+        width: 100%;
+    }
+}
+
+.VideoScreen button:hover{
+    border: 2px solid #4267b2;
+    
+}
+
+.VideoScreen video{
     width: 80%;
     min-width: 320px;;
 }
-.Video{
-    height: 100%;
+
+@media  screen and (max-width: 740px) {
+    .VideoScreen video{
+        width: 100%;
+    }
 }
-.Video .frameButton{
+
+.VideoScreen{
+    height: 100%;
+   
+}
+
+.VideoScreen .frameButton{
     width: 40px;
 }
+
+.FrameNavigation{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.VideoScreen .right{
+    border-radius: 0 15px 15px 0;
+}
+.VideoScreen .left{
+    border-radius: 15px 0px 0px 15px;
+}
+
 .rangeNav{
   width: 80%;
 }

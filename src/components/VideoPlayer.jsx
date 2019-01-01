@@ -21,7 +21,7 @@ class VideoPlayer extends Component {
           {(video, state, actions) => {
             const loadingComponent = state.isLoading ? 'loading...' : undefined;
             return (
-              <div className="Video">
+              <div className="VideoScreen">
                 <div
                   className="videoReader"
                   tabIndex="0"
