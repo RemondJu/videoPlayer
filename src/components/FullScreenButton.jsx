@@ -1,4 +1,5 @@
 import React from 'react';
+import './FullScreenButton.css';
 
 const FullScreenButton = (props) => {
   const { requestFullscreen } = props;

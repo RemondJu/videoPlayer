@@ -15,31 +15,10 @@
     flex-wrap: wrap;
 }
 
-.videoReader:focus, .VideoScreen button{
+.videoReader:focus{
     outline: none;
 }
 
-.VideoScreen button{
-    border-radius: 15px;
-    padding: 8px;
-    width: 80px;
-    background: none;
-    background-color: #5d6ccf;
-    color: white;
-    border: none;
-}
-
-@media  screen and (max-width: 340px) {
-    .VideoScreen button{
-        width: 100%;
-    }
-}
-
-.VideoScreen button:hover{
-    border: 2px solid #5d6ccf;
-    background-color: #b3cfe3;
-    color: black;
-}
 
 .VideoScreen video{
     width: 80%;
@@ -54,26 +33,4 @@
 
 .VideoScreen{
     height: 100%;
-   
 }
-
-.VideoScreen .frameButton{
-    width: 40px;
-}
-
-.FrameNavigation{
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-.VideoScreen .right{
-    border-radius: 0 15px 15px 0;
-}
-.VideoScreen .left{
-    border-radius: 15px 0px 0px 15px;
-}
-
-.rangeNav{
-  width: 80%;
-}
-

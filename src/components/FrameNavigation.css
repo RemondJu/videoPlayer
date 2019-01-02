@@ -1,0 +1,37 @@
+button{
+  border-radius: 15px;
+    padding: 8px;
+    width: 80px;
+    background: none;
+    background-color: #5d6ccf;
+    color: white;
+    border: 2px solid #5d6ccf;
+    outline: none;
+}
+
+button:hover{
+  background-color: #b3cfe3;
+  color: black;
+}
+
+@media  screen and (max-width: 340px) {
+  button{
+      width: 100%;
+  }
+}
+
+.frameButton{
+  width: 40px;
+}
+
+.FrameNavigation{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.right{
+  border-radius: 0 15px 15px 0;
+}
+.left{
+  border-radius: 15px 0px 0px 15px;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import './PlayPauseButton.css';
 
 const PlayPauseButton = (props) => {
   const { status, play, pause } = props;

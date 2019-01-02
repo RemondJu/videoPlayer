@@ -1,4 +1,5 @@
 import React from 'react';
+import './FrameNavigation.css';
 
 const FrameNavigation = (props) => {
   const { navigate } = props;
